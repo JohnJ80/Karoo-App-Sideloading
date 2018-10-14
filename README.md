@@ -14,3 +14,7 @@ Once you have the Amazon app store installed, then install the ES File Explorer 
 
 Once I get this more mature, I'll try and fill in the wiki with directions and pictures. 
 
+Read about what these scripts do and how they work FIRST.  Start here at the wiki:
+
+https://github.com/JohnJ80/Karoo-App-Sideloading/wiki
+
