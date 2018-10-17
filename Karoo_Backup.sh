@@ -28,11 +28,15 @@ mkdir ./Karoo/apps
 
 printf "\n\n Backing up of Osmand data and maps.\n\n"
 
-./adb pull /sdcard/Android/data/net.osmand.plus ./Karoo/Android/data
+./adb pull -a /sdcard/Android/data/net.osmand.plus ./Karoo/Android/data
 
-printf "\n\n Backing up fo Komoot Data.\n\n"
+printf "\n\n Backing up of Komoot Data.\n\n"
 
-./adb pull /sdcard/Android/data/de.komoot.android ./Karoo/Android/data
+./adb pull -a /sdcard/Android/data/de.komoot.android ./Karoo/Android/data
+
+printf "\n\nBacking up Nova Launcher data including backups.\n\n"
+
+./adb pull -a /sdcard/data/com.teslacoilsw.launcher ./Karoo/data/
 
 printf  "\n\nAll done backup up Karoo apps plus Osmand and Komoot data.\n"
 
@@ -54,4 +58,8 @@ printf "\nList of backup up Osmand maps.\n"
 
 ls -al ./Karoo/Android/data/net.osmand.plus/files/*.obf
 
+printf "\n List of other files backed up.\n"
+ls -al ./Karoo/data
+
+printf "\n\n\n --------All Done!---------\n\n\n"
 

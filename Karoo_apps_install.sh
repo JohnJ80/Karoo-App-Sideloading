@@ -19,8 +19,9 @@ printf "\n\n All Done installing Karoo apps.\n"
 
 ./adb push ./Karoo/Android/data/net.osmand.plus /sdcard/Android/data
 ./adb push ./Karoo/Android/data/de.komoot.android /sdcard/Android/data
+./adb push ./Karoo/data/com.teslacoilsw.launcher /sdcard/data
 
-printf "\n\nAll Done installing Osmand and Komoot data.\n"
+printf "\n\nAll Done installing Osman, Komoot and Nova Launcher data.\n"
 
 
 
