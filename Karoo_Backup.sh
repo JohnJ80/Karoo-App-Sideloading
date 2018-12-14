@@ -1,15 +1,18 @@
-printf "----------------------------------------------\n"
+
+SECONDS=0
+
+printf "*____________________________________________*\n"
 printf "*                                            *\n"
 printf "*      Karoo apps and Nav Backup script      *\n"
 printf "*                                            *\n"
-printf "----------------------------------------------\n"
+printf "*____________________________________________*\n"
 printf "\n\n\n"
 
 printf "Setting up directory for backup.\n"
 
 if [mkdir ./Karoo/apps_backup]
 	then
-	printf "Created backup directory with no issues."
+	printf "Created backup directory with no issues. \n"
 else
 	printf "Using backup directory to backup current apps backup.\n"
 fi
@@ -30,7 +33,7 @@ printf "\n\n Backing up of Osmand data and maps.\n\n"
 
 ./adb pull -a /sdcard/Android/data/net.osmand.plus ./Karoo/Android/data
 
-printf "\n\n Backing up of Komoot Data.\n\n"
+printf "Backing up of Komoot Data."
 
 ./adb pull -a /sdcard/Android/data/de.komoot.android ./Karoo/Android/data
 
@@ -54,7 +57,7 @@ printf "\nList of backed up apps.\n\n"
 
 ls ./Karoo/apps
 
-printf "\nList of backup up Osmand maps.\n"
+printf "\nList of backep up Osmand maps.\n"
 
 ls -al ./Karoo/Android/data/net.osmand.plus/files/*.obf
 
@@ -62,4 +65,7 @@ printf "\n List of other files backed up.\n"
 ls -al ./Karoo/data
 
 printf "\n\n\n --------All Done!---------\n\n\n"
-
+duration=$SECONDS
+duration=$SECONDS
+echo " $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
+printf "\n\n"
