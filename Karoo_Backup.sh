@@ -10,7 +10,7 @@ printf "\n\n\n"
 
 printf "Setting up directory for backup.\n"
 
-if [mkdir ./Karoo/apps_backup]
+if (mkdir ./Karoo/apps_backup)
 	then
 	printf "Created backup directory with no issues. \n"
 else
@@ -30,6 +30,20 @@ mkdir ./Karoo/apps
 ./adb pull /sdcard/backups/apps ./Karoo
 
 printf "\n\n Backing up of Osmand data and maps.\n\n"
+if (mkdir ./Karoo/data_backup)
+        then
+        printf "Created map data backup directory with no issues. \n"
+else
+        printf "Using map data backup directory to backup current data backup.\n"
+fi
+
+
+printf "\n Backing up old Osmand data and maps. \n\n"
+rm -r ./Karoo/data_backup
+cp -R -v ./Karoo/Android/data  ./Karoo/data_backup
+
+rm -r ./Karoo/Android/data
+mkdir ./Karoo/Android/data
 
 ./adb pull -a /sdcard/Android/data/net.osmand.plus ./Karoo/Android/data
 
@@ -45,7 +59,7 @@ printf  "\n\nAll done backup up Karoo apps plus Osmand and Komoot data.\n"
 
 printf "Renaming backed up apps without spaces in their names for easy re-install.\n"
 
-printf "Starting Rename_files.sh \n"
+printf "Starting to Rename files \n"
 
 for karoo_file in ./Karoo/apps/*;
 do
@@ -57,7 +71,7 @@ printf "\nList of backed up apps.\n\n"
 
 ls ./Karoo/apps
 
-printf "\nList of backep up Osmand maps.\n"
+printf "\nList of backed up Osmand maps.\n"
 
 ls -al ./Karoo/Android/data/net.osmand.plus/files/*.obf
 
